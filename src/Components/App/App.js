@@ -11,14 +11,9 @@ class App extends Component {
     super(props)
 
     this.state = {
-      searchResults: [
-        {'name': ''},
-        {'artist': ''},
-        {'album': ''},
-        {'id': ''}
-      ],
-      playlistName = 'TEST',
-      playlistTracks = [{'name'}, {'artist'}, {'album'}, {'id'}]
+      searchResults: [{'name': '', 'artist': '', 'album': '', 'id': ''}],
+      playlistName: 'TEST',
+      playlistTracks: [{'name': '', 'artist': '', 'album': '', 'id': ''}]
     }
   }
 
@@ -30,7 +25,7 @@ class App extends Component {
           <SearchBar />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} />
-            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistName}/>
+            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
           </div>
         </div>
       </div>
