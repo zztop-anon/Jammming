@@ -5,17 +5,16 @@ class Track extends React.Component {
     return (
       <div className="Track">
         <div className="Track-information">
-          <h3> track name will go here </h3> //track name
-          <p> track artist will go here |  track album will go here </p> //track artist and ablum
+          <h3> {this.props.track.name} </h3>
+          <p> {this.props.track.artist} | {this.props.track.album} </p>
         </div>
-        <a className="Track-action"> + or - will go here </a> //+ or -
+        <a className="Track-action"> + or - will go here </a>
       </div>
     )
   }
 
-  //CHECK THIS (isRemoval)
   renderAction() {
-    if (Track.isRemoval) {
+    if (this.props.isRemoval) {
       return <a className="Track-action">-</a>
     } else {
       return <a className="Track-action">+</a>

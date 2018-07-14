@@ -4,17 +4,21 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 
+
+
 class App extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       searchResults: [
-        {name: "n"},
-        {artist: "a"},
-        {album: "al"},
-        {id: "id"}
-      ]
+        {'name': ''},
+        {'artist': ''},
+        {'album': ''},
+        {'id': ''}
+      ],
+      playlistName = 'TEST',
+      playlistTracks = [{'name'}, {'artist'}, {'album'}, {'id'}]
     }
   }
 
@@ -26,7 +30,7 @@ class App extends Component {
           <SearchBar />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} />
-            <Playlist />
+            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistName}/>
           </div>
         </div>
       </div>
