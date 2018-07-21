@@ -106,13 +106,11 @@ const Spotify = {
         "Content-Type": 'application/json'},
         method: 'POST',
         body: JSON.stringify({uris: trackURIs})
+        });
       });
-      });
-      });
-      }
-      }
-
+    });
+   }
+ }
 };
-
 
 export default Spotify;

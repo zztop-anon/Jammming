@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import Track from '../Track/Track';
+import TrackList from '../TrackList/TrackList';
 import Spotify from '../../util/Spotify'
 
 
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
       searchResults: [{'name': '', 'artist': '', 'album': '', 'id': ''}],
-      playlistName: 'TEST',
+      playlistName: 'New Playlist',
       playlistTracks: [{'name': '', 'artist': '', 'album': '', 'id': ''}]
     }
+    this.state.searchResults = [];
+    this.state.playlistTracks = [];
 
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
