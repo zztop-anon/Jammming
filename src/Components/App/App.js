@@ -36,15 +36,14 @@ class App extends React.Component {
     this.setState({playlistTracks: currentTracks});
   }
 
-  removeTrack(track) {
-    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
-      return;
-    let currentTracks = this.state.playlistTracks;
-    let trackIndex = currentTracks.indexOf(track);
-    if (trackIndex > -1) {
-      currentTracks.splice(trackIndex, 1);
+  removeTrack(track){
+    if(this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)){
+      let currentTracks = this.state.playlistTracks;
+      let trackIndex = currentTracks.indexOf(track);
+      if(trackIndex > -1){
+        currentTracks.splice(trackIndex, 1);
       }
-    this.setState({playlistTracks: currentTracks});
+      this.setState({playlistTracks: currentTracks});
     }
   }
 

@@ -2,7 +2,7 @@
 let accessToken = '';
 let expiresIn = '';
 const client_id = 'c83f4a4e95d04548bba92b4538b5eee1';
-const redirect_uri = 'http://localhost:3000/';
+const redirect_uri = 'https://JAMMMING_SPOTIFY.surge.sh';
 
 const Spotify = {
   getAccessToken() {
