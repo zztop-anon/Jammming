@@ -47,7 +47,9 @@ const Spotify = {
         },
         networkError => {
           console.log(networkError.message);
-        }).then(jsonResponse => {
+        })
+
+          .then(jsonResponse => {
               //if the JSON response returns no tracks we wish to return an empty array
               if(!jsonResponse.tracks){
                 return [];
@@ -69,7 +71,7 @@ const Spotify = {
       },
 
 
-      savePlaylist(playlistName, trackURIs){
+      savePlaylist(playlistName, trackURIs) {
         console.log(accessToken);
 
         if(!accessToken){
@@ -90,20 +92,20 @@ const Spotify = {
              console.log(user_id);
 
       return fetch(`https://api.spotify.com/v1/users/${user_id}/playlists`, {
-      headers: {Authorization: `Bearer ${accessToken}`},
-      method: 'POST',
-      body: JSON.stringify({name: playlistName})
+        headers: {Authorization: `Bearer ${accessToken}`},
+        method: 'POST',
+        body: JSON.stringify({name: playlistName})
       }).then(response => {
-      return response.json();
-      }).then(jsonResponse => {
-      let playlist_id = jsonResponse.id;
-      console.log(playlist_id);
+        return response.json();
+        }).then(jsonResponse => {
+          let playlist_id = jsonResponse.id;
+          console.log(playlist_id);
 
       return fetch(`https://api.spotify.com/v1/users/${user_id}/playlists/${playlist_id}/tracks`, {
-      headers: {Authorization: `Bearer ${accessToken}`,
-      "Content-Type": 'application/json'},
-      method: 'POST',
-      body: JSON.stringify({uris: trackURIs})
+        headers: {Authorization: `Bearer ${accessToken}`,
+        "Content-Type": 'application/json'},
+        method: 'POST',
+        body: JSON.stringify({uris: trackURIs})
       });
       });
       });
