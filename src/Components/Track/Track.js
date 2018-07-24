@@ -5,9 +5,12 @@ class Track extends React.Component {
   constructor(props) {
     super(props)
 
-    this.addTrack = this.addTrack.bind(this)
-    this.removeTrack = this.removeTrack.bind(this)
+    this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
     this.renderAction = this.renderAction.bind(this);
+//    this.trackDuration = this.trackDuration.bind(this);
+//    this.checkExplicit = this.checkExplicit.bind(this);
+//    this.playAudio = this.playAudio.bind(this);
   }
 
   renderAction() {
@@ -26,20 +29,63 @@ removeTrack() {
   this.props.onRemove(this.props.track)
 }
 
-render() {
-  return (
+renderPreview(){
+  if(!this.props.track.preview_url){
+    return (<p>No preview available</p>);
+  }else{
+    return(<div><i className="fa fa-play-circle" onClick={this.playAudio()}></i>
+    <i className="fa fa-pause-circle"></i></div>);
+
+  }
+}
+
+//playAudio(){
+//  let url = this.props.track.preview_url;
+//  let x = new Audio(url);
+//  x.play();
+//}
+
+//trackDuration(){
+//  let duration = this.props.track.duration;
+//  let seconds = (Math.round(duration/1000))%60;
+//  let minutes = Math.floor((Math.round(duration/1000))/60);
+//  if(seconds===0){
+//    seconds = '00';
+//  }else if(seconds < 10){
+//    let place = seconds;
+//    seconds = `0${place}`;
+//  }else{
+//    seconds = seconds;
+//  }
+//  return `${minutes}:${seconds}`;
+//}
+
+//checkExplicit(){
+//  if(!this.props.track.explicit){
+
+//  }else{
+//    return 'explicit';
+//  }
+//}
+//        <p>{this.trackDuration()} | {this.checkExplicit()}</p>
+
+//        {this.renderPreview()}
+
+
+render(){
+  return(
     <div className="Track">
       <div className="Track-information">
-        <h3> {this.props.track.name} </h3>
-        <p> {this.props.track.artist} | {this.props.track.album} </p>
+        <h3>{this.props.track.name}</h3>
+        <p>{this.props.track.artist} | {this.props.track.album}</p>
+        <div className="button-container">
+        </div>
       </div>
-      {this.renderAction()}
-
+    {this.renderAction()}
     </div>
-  )
+  );
 }
 
 }
-
 
 export default Track;
